@@ -1,8 +1,8 @@
 .sass-cache/
 .jekyll-cache/
-_includes/
-_layouts/
-_posts/
+/_includes/*
+/_layouts/*
+/_posts/*
 .jekyll-metadata
 vendor
 node_modules/
@@ -10,5 +10,5 @@ package-lock.json
 Gemfile
 Gemfile.lock
 *.LICENSE.txt
-_config.yml
+[_config].yml
 CNAME
