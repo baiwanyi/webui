@@ -1,0 +1,45 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuistringrandom-num-">webui.string.random( num )</h1>
+<blockquote>
+  <p>生成随机字符串</p>
+</blockquote>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>num</td>
+      <td>integer</td>
+      <td>否</td>
+      <td>需要生成的字符串位数，默认：32</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//生成默认长度随机字符串（32位）</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webui</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">random</span><span class="p">());</span>
+<span class="c1">// 显示结果：G2iKBQ9ZGp0e85HZDPrJDJd6wcmsntDc</span>
+
+<span class="c1">//生成 16 位长度随机字符串</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webui</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+<span class="c1">// 显示结果：X89JQPmh4ezW6fXG</span>
+
+<span class="c1">//生成 8 位长度随机字符串</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webui</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span>
+<span class="c1">// 显示结果：aJDE4ePh</span>
+</code></pre></div></div>

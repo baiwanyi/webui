@@ -54,6 +54,8 @@ markdown: kramdown
 kramdown:
   input: GFM
   toc_levels: 2..6
+#
+destination: ./docs
 
 #
 sass:

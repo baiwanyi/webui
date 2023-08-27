@@ -1,0 +1,84 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#stringcenter-的合法值" id="markdown-toc-stringcenter-的合法值">string.center 的合法值</a></li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a>    <ul>
+      <li><a href="#左对齐" id="markdown-toc-左对齐">左对齐</a></li>
+      <li><a href="#右对齐" id="markdown-toc-右对齐">右对齐</a></li>
+      <li><a href="#居中" id="markdown-toc-居中">居中</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="webuiloading-align-">webui.loading( align )</h1>
+<p>Bootstrap loading 加载动画</p>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>align</td>
+      <td>string</td>
+      <td>center</td>
+      <td>动画位置</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="stringcenter-的合法值">string.center 的合法值</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>start</td>
+      <td>左对齐</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>右对齐</td>
+    </tr>
+    <tr>
+      <td>center</td>
+      <td>居中</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<h4 id="左对齐">左对齐</h4>
+<div class="border px-3">
+    <div role="loading" data-align="start"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">start</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="右对齐">右对齐</h4>
+<div class="border px-3">
+    <div role="loading" data-align="end"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="居中">居中</h4>
+<div class="border px-3">
+    <div role="loading" data-align="center"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">center</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>

@@ -1,0 +1,38 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuiready-callback-">webui.ready( callback )</h1>
+<p>初始化加载 jQuery.ready 事件</p>
+<blockquote>
+  <p>事件中 <code class="language-plaintext highlighter-rouge">button</code> 元素设定 <code class="language-plaintext highlighter-rouge">submited</code> 属性，可使用回车键提交表单</p>
+</blockquote>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>callback</td>
+      <td>function</td>
+      <td>是</td>
+      <td>回调函数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">ready</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">loading</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>

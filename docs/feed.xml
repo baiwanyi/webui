@@ -1,0 +1,2003 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:8080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:8080/" rel="alternate" type="text/html" /><updated>2023-08-27T18:39:18+08:00</updated><id>http://localhost:8080/feed.xml</id><title type="html">WebUI JS 框架</title><subtitle>基于 Bootstrap 的 WordPress 应用扩展框架</subtitle><entry><title type="html">wp.uploader</title><link href="http://localhost:8080/docs/wordpress-uploader.html" rel="alternate" type="text/html" title="wp.uploader" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/wordpress-uploader</id><content type="html" xml:base="http://localhost:8080/docs/wordpress-uploader.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#支持" id="markdown-toc-支持">支持</a></li>
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#object-options" id="markdown-toc-object-options">object options</a>    <ul>
+      <li><a href="#stringtype-的合法值" id="markdown-toc-stringtype-的合法值">string.type 的合法值</a></li>
+      <li><a href="#functioncallback-的参数" id="markdown-toc-functioncallback-的参数">function.callback 的参数</a></li>
+    </ul>
+  </li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
+</ul>
+
+<h1 id="webuiwpuploader-options-">webui.wp.uploader( options )</h1>
+<p>调用 WordPress 媒体库上传方式</p>
+
+<h2 id="支持">支持</h2>
+<p>需要 <code class="language-plaintext highlighter-rouge">wp_enqueue_media</code> 函数的支持</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 在使用上传的页面添加以下语句</span>
+<span class="nf">wp_enqueue_media</span><span class="p">();</span>
+
+<span class="c1">// 使用排队媒体脚本的参数</span>
+<span class="nf">wp_enqueue_media</span><span class="p">([</span>
+    <span class="s1">'post'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<h2 id="参数">参数</h2>
+<h2 id="object-options">object options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>媒体库</td>
+      <td>是</td>
+      <td>媒体库弹出层标题</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>image</td>
+      <td>是</td>
+      <td>上传媒体类型</td>
+    </tr>
+    <tr>
+      <td>selection</td>
+      <td>integer</td>
+      <td>0</td>
+      <td>否</td>
+      <td>选中的媒体 ID，打开媒体库弹出层时会勾选该项目</td>
+    </tr>
+    <tr>
+      <td>multiple</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>是</td>
+      <td>上传选择时是否多选</td>
+    </tr>
+    <tr>
+      <td>callback</td>
+      <td>function</td>
+      <td> </td>
+      <td>否</td>
+      <td>选中媒体后执行的回调函数</td>
+    </tr>
+    <tr>
+      <td>author</td>
+      <td>integer</td>
+      <td>null</td>
+      <td>否</td>
+      <td>用户 ID，设定后将只显示该用户上传的媒体文件</td>
+    </tr>
+    <tr>
+      <td>button_text</td>
+      <td>string</td>
+      <td>选择</td>
+      <td>否</td>
+      <td>选择按钮标签</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringtype-的合法值">string.type 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>image</td>
+      <td>图片类型</td>
+    </tr>
+    <tr>
+      <td>video</td>
+      <td>视频类型</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="functioncallback-的参数">function.callback 的参数</h3>
+<p>执行 callback 函数时，会携带一个包含当前选中媒体的信息参数</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>说明</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>integer</td>
+      <td>媒体 ID</td>
+      <td>1234</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>媒体标题</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filename</td>
+      <td>string</td>
+      <td>媒体文件名</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>string</td>
+      <td>媒体文件 URL 链接</td>
+      <td>/uploads/images.png</td>
+    </tr>
+    <tr>
+      <td>link</td>
+      <td>string</td>
+      <td>媒体附件页 URL 链接</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>author</td>
+      <td>integer</td>
+      <td>上传作者 ID</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>string</td>
+      <td>媒体描述，在附件页显示</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>caption</td>
+      <td>string</td>
+      <td>媒体说明文字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td>媒体上传别名</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>string</td>
+      <td>媒体上传状态</td>
+      <td>inherit</td>
+    </tr>
+    <tr>
+      <td>uploadedTo</td>
+      <td>integer</td>
+      <td>媒体关联文章 ID</td>
+      <td>5678</td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>datetime</td>
+      <td>媒体上传时间</td>
+      <td>2021-07-22T02:56:06.000Z</td>
+    </tr>
+    <tr>
+      <td>modified</td>
+      <td>datetime</td>
+      <td>媒体修改时间</td>
+      <td>2021-07-22T02:56:06.000Z</td>
+    </tr>
+    <tr>
+      <td>menuOrder</td>
+      <td>integer</td>
+      <td>媒体排序</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>mime</td>
+      <td>string</td>
+      <td>媒体 MIME 类型</td>
+      <td>image/png</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>string</td>
+      <td>媒体类型</td>
+      <td>image</td>
+    </tr>
+    <tr>
+      <td>subtype</td>
+      <td>string</td>
+      <td>媒体后缀名</td>
+      <td>png</td>
+    </tr>
+    <tr>
+      <td>icon</td>
+      <td>string</td>
+      <td>媒体类型图标</td>
+      <td>/wp-includes/images/media/default.png</td>
+    </tr>
+    <tr>
+      <td>dateFormatted</td>
+      <td>date</td>
+      <td>媒体发布格式化时间</td>
+      <td>2021年12月13日</td>
+    </tr>
+    <tr>
+      <td>nonces.update</td>
+      <td>string</td>
+      <td>上传随机数</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nonces.delete</td>
+      <td>string</td>
+      <td>删除随机数</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nonces.edit</td>
+      <td>string</td>
+      <td>编辑随机数</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>editLink</td>
+      <td>string</td>
+      <td>媒体编辑链接</td>
+      <td>/wp-admin/post.php?post=1234&amp;action=edit</td>
+    </tr>
+    <tr>
+      <td>authorName</td>
+      <td>string</td>
+      <td>上传作者显示名字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>authorLink</td>
+      <td>string</td>
+      <td>上传作者后台页面链接</td>
+      <td>/wp-admin/user-edit.php?user_id=1</td>
+    </tr>
+    <tr>
+      <td>uploadedToTitle</td>
+      <td>string</td>
+      <td>媒体关联文章标题</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>uploadedToLink</td>
+      <td>string</td>
+      <td>媒体关联文章编辑链接</td>
+      <td>/wp-admin/post.php?post=5678&amp;action=edit</td>
+    </tr>
+    <tr>
+      <td>filesizeInBytes</td>
+      <td>integer</td>
+      <td>媒体文件大小（字节）</td>
+      <td>57574074</td>
+    </tr>
+    <tr>
+      <td>filesizeHumanReadable</td>
+      <td>string</td>
+      <td>媒体文件大小（本地格式化）</td>
+      <td>55 MB</td>
+    </tr>
+    <tr>
+      <td>context</td>
+      <td>string</td>
+      <td>媒体关联文字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td>integer</td>
+      <td>媒体原始宽度（像素）</td>
+      <td>1280</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>integer</td>
+      <td>媒体原始高度（像素）</td>
+      <td>720</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>string</td>
+      <td>图片 alt 替代文本</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>orientation</td>
+      <td>string</td>
+      <td>图片风格</td>
+      <td>landscape</td>
+    </tr>
+    <tr>
+      <td>sizes.thumbnail.height</td>
+      <td>integer</td>
+      <td>图片缩略图高度（像素）</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>sizes.thumbnail.width</td>
+      <td>integer</td>
+      <td>图片缩略图宽度（像素）</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>sizes.thumbnail.url</td>
+      <td>string</td>
+      <td>图片缩略图地址</td>
+      <td>/uploads/images-150x150.png</td>
+    </tr>
+    <tr>
+      <td>sizes.medium.height</td>
+      <td>integer</td>
+      <td>图片中等尺寸高度（像素）</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>sizes.medium.width</td>
+      <td>integer</td>
+      <td>图片中等尺寸宽度（像素）</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>sizes.medium.url</td>
+      <td>string</td>
+      <td>图片中等尺寸地址</td>
+      <td>/uploads/images-300x300.png</td>
+    </tr>
+    <tr>
+      <td>sizes.full.height</td>
+      <td>integer</td>
+      <td>图片大尺寸高度（像素）</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>sizes.full.width</td>
+      <td>integer</td>
+      <td>图片大尺寸宽度（像素）</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>sizes.full.url</td>
+      <td>string</td>
+      <td>图片大尺寸地址</td>
+      <td>/uploads/images-1000x1000.png</td>
+    </tr>
+    <tr>
+      <td>meta.artist</td>
+      <td>string</td>
+      <td>音频所属艺术家</td>
+      <td>贝多芬</td>
+    </tr>
+    <tr>
+      <td>meta.album</td>
+      <td>string</td>
+      <td>音频所属专辑</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>meta.bitrate</td>
+      <td>string</td>
+      <td>音频码率（kbps）</td>
+      <td>1040</td>
+    </tr>
+    <tr>
+      <td>meta.bitrate_mode</td>
+      <td>string</td>
+      <td>音频编码方式</td>
+      <td>vbr</td>
+    </tr>
+    <tr>
+      <td>fileLength</td>
+      <td>string</td>
+      <td>视频时间</td>
+      <td>11:21</td>
+    </tr>
+    <tr>
+      <td>fileLengthHumanReadable</td>
+      <td>string</td>
+      <td>视频时间（本地格式化）</td>
+      <td>11分, 21秒</td>
+    </tr>
+    <tr>
+      <td>image.src</td>
+      <td>string</td>
+      <td>视频封面地址</td>
+      <td>/wp-includes/images/media/video.png</td>
+    </tr>
+    <tr>
+      <td>image.width</td>
+      <td>integer</td>
+      <td>视频封面宽度（像素）</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>image.height</td>
+      <td>integer</td>
+      <td>视频封面高度（像素）</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>thumb.src</td>
+      <td>string</td>
+      <td>视频封面缩略图地址</td>
+      <td>/wp-includes/images/media/video.png</td>
+    </tr>
+    <tr>
+      <td>thumb.width</td>
+      <td>integer</td>
+      <td>视频封面缩略图宽度（像素）</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>thumb.height</td>
+      <td>integer</td>
+      <td>视频封面缩略图高度（像素）</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>compat.item</td>
+      <td>string</td>
+      <td>媒体兼容性设置</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>compat.meta</td>
+      <td>string</td>
+      <td>媒体兼容性设置</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="./wordpress-action.html">如何设置 WordPress Rest API 操作？</a></li>
+  <li><a href="https://developer.wordpress.org/reference/functions/wp_enqueue_media/">wp_enqueue_media 函数</a></li>
+  <li><a href="https://wehtml.cn">WordPress Cookie Authentication</a></li>
+  <li><a href="https://wehtml.cn">WordPress Basic Authentication</a></li>
+</ul>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">before</title><link href="http://localhost:8080/docs/function-before.html" rel="alternate" type="text/html" title="before" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/function-before</id><content type="html" xml:base="http://localhost:8080/docs/function-before.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuibefore-div-template_id-data-">webui.before( div, template_id, data )</h1>
+<blockquote>
+  <p>在元素之前插入模版内容</p>
+</blockquote>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>div</td>
+      <td>string</td>
+      <td>是</td>
+      <td>显示的 DOM 元素</td>
+    </tr>
+    <tr>
+      <td>template_id</td>
+      <td>string</td>
+      <td>是</td>
+      <td>模版 ID，请使用 <code class="language-plaintext highlighter-rouge">tmpl-*</code> 前缀</td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>object</td>
+      <td>否</td>
+      <td>内容数据，模版使用 <code class="language-plaintext highlighter-rouge">data.{key}</code> 进行数据调用</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">before</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">loading</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">正在加载...</span><span class="dl">'</span><span class="p">});</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">wp.admin</title><link href="http://localhost:8080/docs/wordpress-admin.html" rel="alternate" type="text/html" title="wp.admin" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/wordpress-admin</id><content type="html" xml:base="http://localhost:8080/docs/wordpress-admin.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#请求地址" id="markdown-toc-请求地址">请求地址</a></li>
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-button" id="markdown-toc-object-button">object button</a></li>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#请求参数" id="markdown-toc-请求参数">请求参数</a></li>
+        </ul>
+      </li>
+      <li><a href="#string-method" id="markdown-toc-string-method">string method</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajax-设置" id="markdown-toc-ajax-设置">AJAX 设置</a></li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
+</ul>
+
+<h1 id="webuiwpadmin-button-data-method">webui.wp.admin( button, data, method)</h1>
+<p>使用 <code class="language-plaintext highlighter-rouge">jQuery.ajax()</code> 方法进行后台请求操作，返回 WordPress 后台风格一致的消息提示框。</p>
+<ul>
+  <li><strong>后台使用 AJAX 操作必须登录</strong></li>
+</ul>
+
+<h2 id="请求地址">请求地址</h2>
+<p>请使用 Webian WordPress One 插件中 hooks 进行操作设定</p>
+<ul>
+  <li>Rest API URL
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">{domain}/wp-json</code></p>
+    </blockquote>
+  </li>
+  <li>Rest API Endpoint
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">/wwpo/ajax/admin</code></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-button">object button</h3>
+<p>AJAX 触发按钮对象，作用：</p>
+<ul>
+  <li>Form 表单内容判断（根据按钮对象获取该按钮父级 Form 表单内各个内容值，以对象 <code class="language-plaintext highlighter-rouge">object</code> 格式返回）</li>
+  <li>当按钮对象 Dataset 属性获取</li>
+  <li>AJAX 操作时执行加载动画和按钮禁用</li>
+</ul>
+
+<blockquote>
+  <p>若请求操作不为按钮触发，可为空，请用 <code class="language-plaintext highlighter-rouge">null</code> 代替</p>
+</blockquote>
+
+<h3 id="object-data">object data</h3>
+<p>AJAX 发送到服务器的数据</p>
+<ul>
+  <li>若传参为空，函数会自动读取当前按钮对象的所有 Dataset 属性值</li>
+</ul>
+
+<h4 id="请求参数">请求参数</h4>
+<p>以下为 AJAX 请求操作时要用到的参数，与其他数据一同提交到 Rest API 函数</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>是</td>
+      <td>请求 hooks 函数别名：<code class="language-plaintext highlighter-rouge">wwpo_ajax_post_{action}</code>，按钮对象的 <code class="language-plaintext highlighter-rouge">value</code> 属性</td>
+    </tr>
+    <tr>
+      <td>pagenonce</td>
+      <td>string</td>
+      <td>是</td>
+      <td>当前页面一次性验证随机数，通过 <code class="language-plaintext highlighter-rouge">webuiSettings</code> 设定</td>
+    </tr>
+    <tr>
+      <td>pagenow</td>
+      <td>string</td>
+      <td>是</td>
+      <td>当前页面名称，通过 <code class="language-plaintext highlighter-rouge">webuiSettings</code> 设定</td>
+    </tr>
+    <tr>
+      <td>bulk_ids</td>
+      <td>object</td>
+      <td>否</td>
+      <td>表格批量操作已选中的 ID 列表</td>
+    </tr>
+    <tr>
+      <td>bulk_action</td>
+      <td>string</td>
+      <td>否</td>
+      <td>表格批量操作 hooks 函数别名：<code class="language-plaintext highlighter-rouge">wwpo_ajax_post_{bulk_action}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="string-method">string method</h3>
+<p>AJAX 请求方式，默认为：POST</p>
+<ul>
+  <li>当按钮对象父级表单 <code class="language-plaintext highlighter-rouge">method="GET"</code> 时，请求方式设置为：<strong>GET</strong></li>
+</ul>
+
+<h2 id="ajax-设置">AJAX 设置</h2>
+<p>设置参数参考：<a href="./event-ajax.html#object-options">webui.ajax 事件</a></p>
+<ul>
+  <li>函数默认开启按钮加载动画</li>
+  <li><code class="language-plaintext highlighter-rouge">options.error</code> 函数输出 AJAX 错误消息</li>
+</ul>
+
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="./wordpress-action.html">如何设置 WordPress Rest API 操作？</a></li>
+  <li><a href="./wordpress-action.html">如何设置 WordPress Rest API 登录？</a></li>
+  <li><a href="https://wehtml.cn">WordPress Cookie Authentication</a></li>
+  <li><a href="https://wehtml.cn">WordPress Basic Authentication</a></li>
+</ul>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">wp.action</title><link href="http://localhost:8080/docs/wordpress-action.html" rel="alternate" type="text/html" title="wp.action" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/wordpress-action</id><content type="html" xml:base="http://localhost:8080/docs/wordpress-action.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#请求地址" id="markdown-toc-请求地址">请求地址</a></li>
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-button" id="markdown-toc-object-button">object button</a></li>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#请求参数" id="markdown-toc-请求参数">请求参数</a></li>
+        </ul>
+      </li>
+      <li><a href="#string-method" id="markdown-toc-string-method">string method</a></li>
+      <li><a href="#boolean-login" id="markdown-toc-boolean-login">boolean login</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajax-设置" id="markdown-toc-ajax-设置">AJAX 设置</a>    <ul>
+      <li><a href="#按钮对象-dataset-属性参数" id="markdown-toc-按钮对象-dataset-属性参数">按钮对象 dataset 属性参数</a></li>
+    </ul>
+  </li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
+</ul>
+
+<h1 id="webuiwpaction-button-data-method-login-">webui.wp.action( button, data, method, login )</h1>
+<p>使用 <code class="language-plaintext highlighter-rouge">jQuery.ajax()</code> 方法进行前台请求操作，返回消息内容参考：<a href="./event-ajax.html#objectresult-返回结果数据">webui.ajax 事件返回结果数据</a></p>
+
+<h2 id="请求地址">请求地址</h2>
+<p>请使用 Webian WordPress One 插件中 hooks 进行操作设定</p>
+<ul>
+  <li>Rest API URL
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">{domain}/wp-json</code></p>
+    </blockquote>
+  </li>
+  <li>Rest API Endpoint
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">/wwpo/ajax/action</code></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-button">object button</h3>
+<p>AJAX 触发按钮对象，作用：</p>
+<ul>
+  <li>Form 表单内容判断（根据按钮对象获取该按钮父级 Form 表单内各个内容值，以对象 <code class="language-plaintext highlighter-rouge">object</code> 格式返回）</li>
+  <li>当按钮对象 Dataset 属性获取</li>
+  <li>AJAX 操作时执行加载动画和按钮禁用</li>
+</ul>
+
+<blockquote>
+  <p>若请求操作不为按钮触发，可为空，请用 <code class="language-plaintext highlighter-rouge">null</code> 代替</p>
+</blockquote>
+
+<h3 id="object-data">object data</h3>
+<p>AJAX 发送到服务器的数据</p>
+<ul>
+  <li>若传参为空，函数会自动读取当前按钮对象的所有 Dataset 属性值</li>
+</ul>
+
+<h4 id="请求参数">请求参数</h4>
+<p>以下为 AJAX 请求操作时要用到的参数，与其他数据一同提交到 Rest API 函数</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>是</td>
+      <td>请求 hooks 函数别名：<code class="language-plaintext highlighter-rouge">wwpo_ajax_{method}_{action}</code>，按钮对象的 <code class="language-plaintext highlighter-rouge">value</code> 属性</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>string</td>
+      <td>否</td>
+      <td>登录令牌，通过 <code class="language-plaintext highlighter-rouge">webuiSettings</code> 设定</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="string-method">string method</h3>
+<p>AJAX 请求方式，默认为：POST</p>
+<ul>
+  <li>当按钮对象父级表单 <code class="language-plaintext highlighter-rouge">method="GET"</code> 时，请求方式设置为：<strong>GET</strong></li>
+  <li>当 <code class="language-plaintext highlighter-rouge">boolean.login</code> 为 <code class="language-plaintext highlighter-rouge">false</code> 时，请求方式设置为：<strong>GET</strong></li>
+</ul>
+
+<h3 id="boolean-login">boolean login</h3>
+<p>AJAX 请求前进行登录操作，默认：<strong>false</strong></p>
+
+<h2 id="ajax-设置">AJAX 设置</h2>
+<p>设置参数参考：<a href="./event-ajax.html#object-options">webui.ajax 事件请求选项</a></p>
+<ul>
+  <li>函数默认开启按钮加载动画</li>
+  <li><code class="language-plaintext highlighter-rouge">options.error</code> 函数输出 AJAX 错误消息</li>
+</ul>
+
+<h3 id="按钮对象-dataset-属性参数">按钮对象 dataset 属性参数</h3>
+<p>自定义 dataset 属性参数主要用于 AJAX 执行前加载一个 modal 组件，方便 AJAX 执行完成时显示返回结果，目的是为了用户进行操作时体验流畅，在 AJAX 结果返回前 modal 组件会一直显示 loading 等待动画。如果直接在执行结果返回时才显示 modal 组件会有一定的等待空闲，用户在体验上会感到不佳。</p>
+<ul>
+  <li>可使用 <code class="language-plaintext highlighter-rouge">ajax 事件返回结果数据</code> 中 <a href="./event-ajax.html#object-options#请求成功时渲染-template-模板">请求成功时渲染 template 模板</a> 进行结果显示</li>
+  <li>使用 Webian WordPress One 插件中函数进行内容返回</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>modal-close</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>否</td>
+      <td>是否显示弹出层关闭按钮</td>
+    </tr>
+    <tr>
+      <td>modal-title</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>弹出层标题</td>
+    </tr>
+    <tr>
+      <td>modal-size</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>弹出层尺寸</td>
+    </tr>
+    <tr>
+      <td>modal-button</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>弹出层提交操作按钮动作名称 <br /> 默认使用 <code class="language-plaintext highlighter-rouge">[data-action="ajax"]</code> 方法进行 AJAX 请求操作用</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="./wordpress-action.html">设置 WordPress Rest API 操作</a></li>
+  <li><a href="./wordpress-action.html">设置 WordPress Rest API 登录</a></li>
+  <li><a href="https://wehtml.cn">WordPress Cookie Authentication</a></li>
+  <li><a href="https://wehtml.cn">WordPress Basic Authentication</a></li>
+</ul>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">alert</title><link href="http://localhost:8080/docs/components-alert.html" rel="alternate" type="text/html" title="alert" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/components-alert</id><content type="html" xml:base="http://localhost:8080/docs/components-alert.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<div role="ajax"></div>
+
+<h1 id="webuialert-css-text-div-">webui.alert( css, text, div )</h1>
+<p>Bootstrap alert 警告提示框</p>
+<ul>
+  <li>显示会优先查找页面中 <code class="language-plaintext highlighter-rouge">[role="ajax"]</code> 的 DOM 元素</li>
+  <li>若页面使用了 <code class="language-plaintext highlighter-rouge">webui.modal</code> 组件，优先显示到组件 <code class="language-plaintext highlighter-rouge">.modal-body</code> 中</li>
+  <li>显示方式采用 <code class="language-plaintext highlighter-rouge">prepend</code> 在 DOM 元素头部插入</li>
+</ul>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>css</td>
+      <td>string</td>
+      <td>danger</td>
+      <td>消息样式</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>string</td>
+      <td>未知消息</td>
+      <td>消息文本</td>
+    </tr>
+    <tr>
+      <td>div</td>
+      <td>string</td>
+      <td>body</td>
+      <td>显示的 DOM 元素</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-primary" data-wb-action="alert" value="primary">primary 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">primary</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 primary 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-secondary" data-wb-action="alert" value="secondary">secondary 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">secondary</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 secondary 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-success" data-wb-action="alert" value="success">success 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">success</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 success 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-danger" data-wb-action="alert" value="danger">danger 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">danger</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 danger 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-warning" data-wb-action="alert" value="warning">warning 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">warning</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 warning 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-info" data-wb-action="alert" value="info">info 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">info</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 info 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-light" data-wb-action="alert" value="light">light 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">light</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 light 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-dark" data-wb-action="alert" value="dark">dark 消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">dark</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">这里是 dark 消息</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">loading</title><link href="http://localhost:8080/docs/components-loading.html" rel="alternate" type="text/html" title="loading" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/components-loading</id><content type="html" xml:base="http://localhost:8080/docs/components-loading.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#stringcenter-的合法值" id="markdown-toc-stringcenter-的合法值">string.center 的合法值</a></li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a>    <ul>
+      <li><a href="#左对齐" id="markdown-toc-左对齐">左对齐</a></li>
+      <li><a href="#右对齐" id="markdown-toc-右对齐">右对齐</a></li>
+      <li><a href="#居中" id="markdown-toc-居中">居中</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="webuiloading-align-">webui.loading( align )</h1>
+<p>Bootstrap loading 加载动画</p>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>align</td>
+      <td>string</td>
+      <td>center</td>
+      <td>动画位置</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="stringcenter-的合法值">string.center 的合法值</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>start</td>
+      <td>左对齐</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>右对齐</td>
+    </tr>
+    <tr>
+      <td>center</td>
+      <td>居中</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<h4 id="左对齐">左对齐</h4>
+<div class="border px-3">
+    <div role="loading" data-align="start"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">start</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="右对齐">右对齐</h4>
+<div class="border px-3">
+    <div role="loading" data-align="end"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="居中">居中</h4>
+<div class="border px-3">
+    <div role="loading" data-align="center"></div>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">loading</span><span class="p">(</span><span class="dl">'</span><span class="s1">center</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">message</title><link href="http://localhost:8080/docs/components-message.html" rel="alternate" type="text/html" title="message" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/components-message</id><content type="html" xml:base="http://localhost:8080/docs/components-message.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#stringposition-的合法值" id="markdown-toc-stringposition-的合法值">string.position 的合法值</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuimessage-data-">webui.message( data )</h1>
+<p>Bootstrap message 气泡提示框</p>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-data">object data</h3>
+<p>参数选项</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>main</td>
+      <td>气泡提示框 ID</td>
+    </tr>
+    <tr>
+      <td>user</td>
+      <td>string</td>
+      <td> </td>
+      <td>发布者</td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>string</td>
+      <td> </td>
+      <td>发布时间</td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td>string</td>
+      <td> </td>
+      <td>显示头像</td>
+    </tr>
+    <tr>
+      <td>position</td>
+      <td>string</td>
+      <td>bottom-end</td>
+      <td>气泡提示框位置</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>string</td>
+      <td> </td>
+      <td>消息内容</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringposition-的合法值">string.position 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>top-start</td>
+      <td>左上角</td>
+    </tr>
+    <tr>
+      <td>top-end</td>
+      <td>右上角</td>
+    </tr>
+    <tr>
+      <td>bottom-start</td>
+      <td>左下角</td>
+    </tr>
+    <tr>
+      <td>bottom-end</td>
+      <td>右下角</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-primary" data-wb-action="message" value="bottom-end">右下角消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">message</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WEBUI 前端框架</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">time</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2 分钟前</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">右下角消息</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-primary" data-wb-action="message" value="bottom-start">左下角消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 左下角消息</span>
+<span class="nx">webui</span><span class="p">.</span><span class="nx">message</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WEBUI 前端框架</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">time</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2 分钟前</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">position</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bottom-start</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">左下角消息</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">modal</title><link href="http://localhost:8080/docs/components-modal.html" rel="alternate" type="text/html" title="modal" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/components-modal</id><content type="html" xml:base="http://localhost:8080/docs/components-modal.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#stringsize-的合法值" id="markdown-toc-stringsize-的合法值">string.size 的合法值</a></li>
+          <li><a href="#objectbutton-操作按钮" id="markdown-toc-objectbutton-操作按钮">object.button 操作按钮</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuimodal-data-">webui.modal( data )</h1>
+<p>Bootstrap Modal 弹出层组件</p>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-data">object data</h3>
+<p>参数选项</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>main</td>
+      <td>弹出层 ID</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td> </td>
+      <td>弹出层标题</td>
+    </tr>
+    <tr>
+      <td>close</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>显示关闭按钮</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>string</td>
+      <td> </td>
+      <td>弹出层尺寸</td>
+    </tr>
+    <tr>
+      <td>button</td>
+      <td>object</td>
+      <td> </td>
+      <td>操作按钮</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>string</td>
+      <td> </td>
+      <td>消息内容</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringsize-的合法值">string.size 的合法值</h4>
+<p>默认尺寸 <code class="language-plaintext highlighter-rouge">500px</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fullscreen</td>
+      <td>全屏显示</td>
+    </tr>
+    <tr>
+      <td>sm</td>
+      <td>300px</td>
+    </tr>
+    <tr>
+      <td>lg</td>
+      <td>800px</td>
+    </tr>
+    <tr>
+      <td>xl</td>
+      <td>1140px</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="objectbutton-操作按钮">object.button 操作按钮</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>操作按钮 AJAX 动作，用于设置 <code class="language-plaintext highlighter-rouge">data-action</code> 参数</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>操作按钮值</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>操作按钮名称</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+<p>示例采用 webui 前端框架的 modal 方法展示，查看更多详细<a href="./docs/method-modal">参数设置</a></p>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="modal" data-modal-title="带关闭按钮弹出层" data-close="true">带关闭按钮</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">modal</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">带关闭按钮弹出层</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">close</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="modal" data-modal-title="带操作按钮弹出层" data-modal-button="refresh" data-close="true">带操作按钮</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">modal</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">带操作按钮弹出层</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">close</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">button</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">保存更改</span><span class="dl">'</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="modal" data-modal-title="全屏显示弹出层" data-modal-size="fullscreen">全屏显示</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">modal</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">全屏显示弹出层</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">fullscreen</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">sidebar</title><link href="http://localhost:8080/docs/components-sidebar.html" rel="alternate" type="text/html" title="sidebar" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/components-sidebar</id><content type="html" xml:base="http://localhost:8080/docs/components-sidebar.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#stringsize-的合法值" id="markdown-toc-stringsize-的合法值">string.size 的合法值</a></li>
+          <li><a href="#objectbutton-操作按钮" id="markdown-toc-objectbutton-操作按钮">object.button 操作按钮</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuisidebar-data-">webui.sidebar( data )</h1>
+<p>Bootstrap Sidebar 侧边栏组件</p>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-data">object data</h3>
+<p>参数选项</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>main</td>
+      <td>侧边栏 ID</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td> </td>
+      <td>侧边栏标题</td>
+    </tr>
+    <tr>
+      <td>scroll</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>是否允许页面滚动</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>string</td>
+      <td>end</td>
+      <td>侧边栏位置</td>
+    </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>是否显示背景</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>string</td>
+      <td> </td>
+      <td>侧边栏内容</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringsize-的合法值">string.size 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>top</td>
+      <td>上</td>
+    </tr>
+    <tr>
+      <td>bottom</td>
+      <td>下</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>左</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>右</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="objectbutton-操作按钮">object.button 操作按钮</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>操作按钮 AJAX 动作，用于设置 <code class="language-plaintext highlighter-rouge">data-action</code> 参数</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>操作按钮值</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string</td>
+      <td>操作按钮名称</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+<p>示例采用 webui 前端框架的 sidebar 方法展示，查看更多详细<a href="./docs/method-sidebar">参数设置</a></p>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="sidebar" data-sidebar-title="默认侧边栏" data-close="true">默认侧边栏</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">默认侧边栏</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="sidebar" data-sidebar-title="75% 屏幕尺寸的侧边栏" data-sidebar-size="end w-75">带尺寸侧边栏</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">75% 屏幕尺寸的侧边栏</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">end w-75</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border px-3 py-4">
+    <button type="button" class="btn btn-outline-primary" data-action="sidebar" data-sidebar-title="顶部侧边栏" data-sidebar-size="top">顶部侧边栏</button>
+</div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">顶部侧边栏</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">top</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry><entry><title type="html">ajax</title><link href="http://localhost:8080/docs/event-ajax.html" rel="alternate" type="text/html" title="ajax" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:8080/docs/event-ajax</id><content type="html" xml:base="http://localhost:8080/docs/event-ajax.html"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-button" id="markdown-toc-object-button">object button</a></li>
+      <li><a href="#object-options" id="markdown-toc-object-options">object options</a>        <ul>
+          <li><a href="#stringmethod-的合法值" id="markdown-toc-stringmethod-的合法值">string.method 的合法值</a></li>
+          <li><a href="#stringlogin-的合法值" id="markdown-toc-stringlogin-的合法值">string.login 的合法值</a></li>
+          <li><a href="#functionbeforesend-回调函数" id="markdown-toc-functionbeforesend-回调函数">function.beforesend 回调函数</a></li>
+          <li><a href="#functioncomplete-回调函数" id="markdown-toc-functioncomplete-回调函数">function.complete 回调函数</a></li>
+          <li><a href="#functionerror-回调函数" id="markdown-toc-functionerror-回调函数">function.error 回调函数</a></li>
+          <li><a href="#functionsuccess-回调函数" id="markdown-toc-functionsuccess-回调函数">function.success 回调函数</a></li>
+          <li><a href="#objectresult-返回结果数据" id="markdown-toc-objectresult-返回结果数据">object.result 返回结果数据</a>            <ul>
+              <li><a href="#请求完成时禁用表单" id="markdown-toc-请求完成时禁用表单">请求完成时禁用表单</a></li>
+              <li><a href="#请求完成时修改表单值" id="markdown-toc-请求完成时修改表单值">请求完成时修改表单值</a></li>
+              <li><a href="#请求完成时删除-dom-元素" id="markdown-toc-请求完成时删除-dom-元素">请求完成时删除 DOM 元素</a></li>
+              <li><a href="#请求完成时转跳指定-url" id="markdown-toc-请求完成时转跳指定-url">请求完成时转跳指定 URL</a></li>
+              <li><a href="#请求成功时调用-alert-组件" id="markdown-toc-请求成功时调用-alert-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">alert</code> 组件</a></li>
+              <li><a href="#请求成功时调用-modal-组件" id="markdown-toc-请求成功时调用-modal-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">modal</code> 组件</a></li>
+              <li><a href="#请求成功时调用-sidebar-组件" id="markdown-toc-请求成功时调用-sidebar-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">sidebar</code> 组件</a></li>
+              <li><a href="#请求成功时调用-toast-组件" id="markdown-toc-请求成功时调用-toast-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">toast</code> 组件</a></li>
+              <li><a href="#请求成功时渲染-template-模板" id="markdown-toc-请求成功时渲染-template-模板">请求成功时渲染 <code class="language-plaintext highlighter-rouge">template</code> 模板</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
+</ul>
+
+<h1 id="webuiajax-button-options-">webui.ajax( button, options )</h1>
+<p>使用 <code class="language-plaintext highlighter-rouge">jQuery.ajax()</code> 方法进行请求操作</p>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-button">object button</h3>
+<p>AJAX 触发按钮 DOM 对象</p>
+<blockquote>
+  <p>若 AJAX 请求操作不为按钮触发，可为空，请用 <code class="language-plaintext highlighter-rouge">null</code> 代替</p>
+</blockquote>
+
+<h3 id="object-options">object options</h3>
+<p>AJAX 请求选项</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>method</td>
+      <td>string</td>
+      <td>POST</td>
+      <td>是</td>
+      <td>请求方法</td>
+    </tr>
+    <tr>
+      <td>login</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>登录请求</td>
+    </tr>
+    <tr>
+      <td>form</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>需要读取的表单 DOM 元素 ID。若当前触发请求的 DOM 元素在 <code class="language-plaintext highlighter-rouge">form</code> 表单元素内，则优先读取请求的 DOM 元素表单</td>
+    </tr>
+    <tr>
+      <td>ajax</td>
+      <td>string</td>
+      <td> </td>
+      <td>是</td>
+      <td>AJAX 请求动作名</td>
+    </tr>
+    <tr>
+      <td>ajaxurl</td>
+      <td>string</td>
+      <td>webuiSettings.ajaxurl</td>
+      <td>是</td>
+      <td>AJAX 请求地址。请尽量使用基本的域名，如：<code class="language-plaintext highlighter-rouge">//domain.com/wp-json/</code>，使用 <code class="language-plaintext highlighter-rouge">options.ajax</code> 请求动作名进行每个 AJAX 操作，即：<code class="language-plaintext highlighter-rouge">//domain.com/wp-json/{options.ajax}</code></td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>object</td>
+      <td> </td>
+      <td>否</td>
+      <td>AJAX 请求参数。若设定了 <code class="language-plaintext highlighter-rouge">options.form</code> 参数，会自动读取表单 DOM 内所有值</td>
+    </tr>
+    <tr>
+      <td>loading</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>否</td>
+      <td>按钮加载动画，请求按钮 DOM 元素设置 <code class="language-plaintext highlighter-rouge">loading</code> 属性。若 <code class="language-plaintext highlighter-rouge">button</code> 参数为空即使参数为 <code class="language-plaintext highlighter-rouge">true</code> 也不会显示加载动画</td>
+    </tr>
+    <tr>
+      <td>beforesend</td>
+      <td>function</td>
+      <td> </td>
+      <td>否</td>
+      <td>发送请求前的操作</td>
+    </tr>
+    <tr>
+      <td>complete</td>
+      <td>function</td>
+      <td> </td>
+      <td>否</td>
+      <td>请求完成时的操作，不管请求是否成功都会执行</td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>function</td>
+      <td> </td>
+      <td>否</td>
+      <td>请求错误时的操作</td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>function</td>
+      <td> </td>
+      <td>否</td>
+      <td>请求成功时的操作</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringmethod-的合法值">string.method 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POST</td>
+      <td>POST 请求方法</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>GET 请求方法</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringlogin-的合法值">string.login 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>wp</td>
+      <td>在 WordPress Rest API 中使用 Cookie Authentication</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>在 WordPress Rest API 中使用 Basic Authentication</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="functionbeforesend-回调函数">function.beforesend 回调函数</h4>
+<p>AJAX 发送请求前的操作</p>
+<ul>
+  <li><strong>返回值为 <code class="language-plaintext highlighter-rouge">false</code> 时，会中止执行 AJAX 操作</strong></li>
+  <li>设置 <code class="language-plaintext highlighter-rouge">options.login</code> 参数则会请求认证头部信息</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xhr</td>
+      <td>包含 <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> 对象</td>
+    </tr>
+    <tr>
+      <td>options.data</td>
+      <td>AJAX 请求参数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="functioncomplete-回调函数">function.complete 回调函数</h4>
+<p>请求完成时的操作，不管请求是否成功都会执行</p>
+<blockquote>
+  <p>如果当前请求按钮 DOM 不为空，则会重置按钮禁用状态和移除动画</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>button</td>
+      <td>当前按钮 DOM 元素</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="functionerror-回调函数">function.error 回调函数</h4>
+<p>请求错误时的操作</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td>包含来自请求的结果数据</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="functionsuccess-回调函数">function.success 回调函数</h4>
+<p>请求成功时的操作</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td>包含来自请求的结果数据</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>包含请求的状态：<code class="language-plaintext highlighter-rouge">success</code>, <code class="language-plaintext highlighter-rouge">notmodified</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">timeout</code>, <code class="language-plaintext highlighter-rouge">parsererror</code></td>
+    </tr>
+    <tr>
+      <td>xhr</td>
+      <td>包含 <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> 对象</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="objectresult-返回结果数据">object.result 返回结果数据</h4>
+<p>WebUI 对 AJAX 请求的返回结果设置了不同的反馈操作，便于在执行 AJAX 时使用</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>string</td>
+      <td>错误代码，用于判断执行动作</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>string</td>
+      <td>错误信息</td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>object</td>
+      <td>附加数据</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>string.code 的合法值</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>success</td>
+      <td>请求成功，显示成功信息</td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>请求失败，大部分时间请求失败会在 <code class="language-plaintext highlighter-rouge">function.error</code> 回调函数中执行</td>
+    </tr>
+    <tr>
+      <td>alert</td>
+      <td>请求成功，调用 <code class="language-plaintext highlighter-rouge">alert</code> 组件</td>
+    </tr>
+    <tr>
+      <td>modal</td>
+      <td>请求成功，调用 <code class="language-plaintext highlighter-rouge">modal</code> 组件</td>
+    </tr>
+    <tr>
+      <td>sidebar</td>
+      <td>请求成功，调用 <code class="language-plaintext highlighter-rouge">sidebar</code> 组件</td>
+    </tr>
+    <tr>
+      <td>toast</td>
+      <td>请求成功，调用 <code class="language-plaintext highlighter-rouge">toast</code> 组件</td>
+    </tr>
+    <tr>
+      <td>template</td>
+      <td>请求成功，渲染 <code class="language-plaintext highlighter-rouge">template</code> 模版</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>object.data 的合法值</strong></p>
+<blockquote>
+  <p>其他参数值请查看具体请求完成操作</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>integer</td>
+      <td>HTTP 状态码</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求完成时禁用表单">请求完成时禁用表单</h5>
+<p>返回值中包含 <code class="language-plaintext highlighter-rouge">result.data.disabled</code> 数组内容</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>禁用的表单 name 属性值</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>boolean</td>
+      <td>解除禁用：<code class="language-plaintext highlighter-rouge">false</code>，禁用表单：<code class="language-plaintext highlighter-rouge">true</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求完成时修改表单值">请求完成时修改表单值</h5>
+<p>返回值中包含 <code class="language-plaintext highlighter-rouge">result.data.value</code> 数组内容</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>需要修改的表单 name 属性值</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>需要修改的表单值</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求完成时删除-dom-元素">请求完成时删除 DOM 元素</h5>
+<p>返回值中包含 <code class="language-plaintext highlighter-rouge">result.data.remove</code> 内容</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">remove</code> 的值为要删除的 DOM 元素</li>
+  <li>如值为 <code class="language-plaintext highlighter-rouge">tr</code> 则删除当前操作 DOM 元素的父级表格行</li>
+</ul>
+
+<h5 id="请求完成时转跳指定-url">请求完成时转跳指定 URL</h5>
+<p>返回值中包含 <code class="language-plaintext highlighter-rouge">result.data.url</code> 内容</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">url</code> 的值为要转跳的 URL 地址链接</li>
+  <li>如值为 <code class="language-plaintext highlighter-rouge">reload</code> 则刷新当前页面</li>
+</ul>
+
+<h5 id="请求成功时调用-alert-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">alert</code> 组件</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result.message</td>
+      <td>string</td>
+      <td>alert 显示的信息</td>
+    </tr>
+    <tr>
+      <td>result.data.icon</td>
+      <td>string</td>
+      <td>alert 组件的图标或状态颜色，如：success、danger、info…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求成功时调用-modal-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">modal</code> 组件</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result.message</td>
+      <td>string</td>
+      <td>modal 内容模版 ID 名</td>
+    </tr>
+    <tr>
+      <td>result.data.content</td>
+      <td>object</td>
+      <td>渲染模版的内容数据</td>
+    </tr>
+    <tr>
+      <td>result.data.qrcode</td>
+      <td>string</td>
+      <td>显示 modal 组件后生成二维码内容</td>
+    </tr>
+    <tr>
+      <td>result.data.settings</td>
+      <td>object</td>
+      <td>显示 modal 组件的设置参数。参考 <a href="./components-modal">webui.modal</a> 组件</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求成功时调用-sidebar-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">sidebar</code> 组件</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result.message</td>
+      <td>string</td>
+      <td>sidebar 内容模版 ID 名</td>
+    </tr>
+    <tr>
+      <td>result.data.content</td>
+      <td>object</td>
+      <td>渲染模版的内容数据</td>
+    </tr>
+    <tr>
+      <td>result.data.settings</td>
+      <td>object</td>
+      <td>显示 sidebar 组件的设置参数。参考 <a href="./components-sidebar">webui.sidebar</a> 组件</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求成功时调用-toast-组件">请求成功时调用 <code class="language-plaintext highlighter-rouge">toast</code> 组件</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result.message</td>
+      <td>string</td>
+      <td>toast 显示的信息</td>
+    </tr>
+    <tr>
+      <td>result.data.icon</td>
+      <td>string</td>
+      <td>toast 组件的图标</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>result.data.icon 的合法值</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>success</td>
+      <td>成功图标</td>
+    </tr>
+    <tr>
+      <td>loading</td>
+      <td>加载动画</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="请求成功时渲染-template-模板">请求成功时渲染 <code class="language-plaintext highlighter-rouge">template</code> 模板</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result.message</td>
+      <td>string</td>
+      <td>显示模版 ID 名</td>
+    </tr>
+    <tr>
+      <td>result.data.content</td>
+      <td>object</td>
+      <td>渲染模版的内容数据</td>
+    </tr>
+    <tr>
+      <td>result.data.body</td>
+      <td>string</td>
+      <td>显示的 DOM 元素，默认：body</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="https://wehtml.cn">WordPress Cookie Authentication</a></li>
+  <li><a href="https://wehtml.cn">WordPress Basic Authentication</a></li>
+  <li><a href="./httpcode.html">常见 HTTP 状态码</a></li>
+</ul>]]></content><author><name>baiwanyi</name></author><category term="docs" /></entry></feed>

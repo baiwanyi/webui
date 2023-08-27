@@ -1,0 +1,119 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#stringposition-的合法值" id="markdown-toc-stringposition-的合法值">string.position 的合法值</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuimessage-data-">webui.message( data )</h1>
+<p>Bootstrap message 气泡提示框</p>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-data">object data</h3>
+<p>参数选项</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>默认值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>main</td>
+      <td>气泡提示框 ID</td>
+    </tr>
+    <tr>
+      <td>user</td>
+      <td>string</td>
+      <td> </td>
+      <td>发布者</td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>string</td>
+      <td> </td>
+      <td>发布时间</td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td>string</td>
+      <td> </td>
+      <td>显示头像</td>
+    </tr>
+    <tr>
+      <td>position</td>
+      <td>string</td>
+      <td>bottom-end</td>
+      <td>气泡提示框位置</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>string</td>
+      <td> </td>
+      <td>消息内容</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="stringposition-的合法值">string.position 的合法值</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>top-start</td>
+      <td>左上角</td>
+    </tr>
+    <tr>
+      <td>top-end</td>
+      <td>右上角</td>
+    </tr>
+    <tr>
+      <td>bottom-start</td>
+      <td>左下角</td>
+    </tr>
+    <tr>
+      <td>bottom-end</td>
+      <td>右下角</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-primary" data-wb-action="message" value="bottom-end">右下角消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">message</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WEBUI 前端框架</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">time</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2 分钟前</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">右下角消息</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="border py-4 px-3">
+    <button type="button" class="btn btn-outline-primary" data-wb-action="message" value="bottom-start">左下角消息</button>
+</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 左下角消息</span>
+<span class="nx">webui</span><span class="p">.</span><span class="nx">message</span><span class="p">({</span>
+    <span class="na">user</span><span class="p">:</span> <span class="dl">'</span><span class="s1">WEBUI 前端框架</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">time</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2 分钟前</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">position</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bottom-start</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">左下角消息</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>

@@ -1,0 +1,65 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#functioncallback-回调函数" id="markdown-toc-functioncallback-回调函数">function.callback 回调函数</a></li>
+    </ul>
+  </li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuiinput-current-callback-">webui.input( current, callback )</h1>
+<p>触发 jQuery.input propertychange 事件</p>
+
+<p>若触发操作的 DOM 元素为 <code class="language-plaintext highlighter-rouge">a</code> 标签，会为事件添加 <code class="language-plaintext highlighter-rouge">preventDefault</code> 方法</p>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>current</td>
+      <td>string</td>
+      <td>是</td>
+      <td>触发事件的 DOM 元素</td>
+    </tr>
+    <tr>
+      <td>callback</td>
+      <td>function</td>
+      <td>是</td>
+      <td>回调函数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="functioncallback-回调函数">function.callback 回调函数</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>current</td>
+      <td>当前触发 DOM 元素对象</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">webui</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="dl">'</span><span class="s1">button#submit</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">))</span>
+<span class="p">});</span>
+
+<span class="c1">// 显示结果：submit</span>
+</code></pre></div></div>

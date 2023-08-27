@@ -1,0 +1,121 @@
+<ul id="markdown-toc">
+  <li><a href="#请求地址" id="markdown-toc-请求地址">请求地址</a></li>
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-button" id="markdown-toc-object-button">object button</a></li>
+      <li><a href="#object-data" id="markdown-toc-object-data">object data</a>        <ul>
+          <li><a href="#请求参数" id="markdown-toc-请求参数">请求参数</a></li>
+        </ul>
+      </li>
+      <li><a href="#string-method" id="markdown-toc-string-method">string method</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajax-设置" id="markdown-toc-ajax-设置">AJAX 设置</a></li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
+</ul>
+
+<h1 id="webuiwpadmin-button-data-method">webui.wp.admin( button, data, method)</h1>
+<p>使用 <code class="language-plaintext highlighter-rouge">jQuery.ajax()</code> 方法进行后台请求操作，返回 WordPress 后台风格一致的消息提示框。</p>
+<ul>
+  <li><strong>后台使用 AJAX 操作必须登录</strong></li>
+</ul>
+
+<h2 id="请求地址">请求地址</h2>
+<p>请使用 Webian WordPress One 插件中 hooks 进行操作设定</p>
+<ul>
+  <li>Rest API URL
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">{domain}/wp-json</code></p>
+    </blockquote>
+  </li>
+  <li>Rest API Endpoint
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">/wwpo/ajax/admin</code></p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="参数">参数</h2>
+<h3 id="object-button">object button</h3>
+<p>AJAX 触发按钮对象，作用：</p>
+<ul>
+  <li>Form 表单内容判断（根据按钮对象获取该按钮父级 Form 表单内各个内容值，以对象 <code class="language-plaintext highlighter-rouge">object</code> 格式返回）</li>
+  <li>当按钮对象 Dataset 属性获取</li>
+  <li>AJAX 操作时执行加载动画和按钮禁用</li>
+</ul>
+
+<blockquote>
+  <p>若请求操作不为按钮触发，可为空，请用 <code class="language-plaintext highlighter-rouge">null</code> 代替</p>
+</blockquote>
+
+<h3 id="object-data">object data</h3>
+<p>AJAX 发送到服务器的数据</p>
+<ul>
+  <li>若传参为空，函数会自动读取当前按钮对象的所有 Dataset 属性值</li>
+</ul>
+
+<h4 id="请求参数">请求参数</h4>
+<p>以下为 AJAX 请求操作时要用到的参数，与其他数据一同提交到 Rest API 函数</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>是</td>
+      <td>请求 hooks 函数别名：<code class="language-plaintext highlighter-rouge">wwpo_ajax_post_{action}</code>，按钮对象的 <code class="language-plaintext highlighter-rouge">value</code> 属性</td>
+    </tr>
+    <tr>
+      <td>pagenonce</td>
+      <td>string</td>
+      <td>是</td>
+      <td>当前页面一次性验证随机数，通过 <code class="language-plaintext highlighter-rouge">webuiSettings</code> 设定</td>
+    </tr>
+    <tr>
+      <td>pagenow</td>
+      <td>string</td>
+      <td>是</td>
+      <td>当前页面名称，通过 <code class="language-plaintext highlighter-rouge">webuiSettings</code> 设定</td>
+    </tr>
+    <tr>
+      <td>bulk_ids</td>
+      <td>object</td>
+      <td>否</td>
+      <td>表格批量操作已选中的 ID 列表</td>
+    </tr>
+    <tr>
+      <td>bulk_action</td>
+      <td>string</td>
+      <td>否</td>
+      <td>表格批量操作 hooks 函数别名：<code class="language-plaintext highlighter-rouge">wwpo_ajax_post_{bulk_action}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="string-method">string method</h3>
+<p>AJAX 请求方式，默认为：POST</p>
+<ul>
+  <li>当按钮对象父级表单 <code class="language-plaintext highlighter-rouge">method="GET"</code> 时，请求方式设置为：<strong>GET</strong></li>
+</ul>
+
+<h2 id="ajax-设置">AJAX 设置</h2>
+<p>设置参数参考：<a href="./event-ajax.html#object-options">webui.ajax 事件</a></p>
+<ul>
+  <li>函数默认开启按钮加载动画</li>
+  <li><code class="language-plaintext highlighter-rouge">options.error</code> 函数输出 AJAX 错误消息</li>
+</ul>
+
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="./wordpress-action.html">如何设置 WordPress Rest API 操作？</a></li>
+  <li><a href="./wordpress-action.html">如何设置 WordPress Rest API 登录？</a></li>
+  <li><a href="https://wehtml.cn">WordPress Cookie Authentication</a></li>
+  <li><a href="https://wehtml.cn">WordPress Basic Authentication</a></li>
+</ul>

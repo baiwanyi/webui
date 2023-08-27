@@ -1,0 +1,42 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+</ul>
+
+<h1 id="webuilazy-images-div-">webui.lazy( images, div )</h1>
+<blockquote>
+  <p>图片懒加载</p>
+</blockquote>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>images</td>
+      <td>string</td>
+      <td>否</td>
+      <td>渲染图片，默认：img.lazy</td>
+    </tr>
+    <tr>
+      <td>div</td>
+      <td>string</td>
+      <td>否</td>
+      <td>渲染位置，默认：body</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// body 框架内 class 包含 lazy 样式属性的图片</span>
+<span class="nx">webui</span><span class="p">.</span><span class="nx">lazy</span><span class="p">();</span>
+
+<span class="c1">// #content 框架内 class 包含 lazyload 样式属性的图片</span>
+<span class="nx">webui</span><span class="p">.</span><span class="nx">lazy</span><span class="p">(</span><span class="dl">'</span><span class="s1">img.lazyload</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#content</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>

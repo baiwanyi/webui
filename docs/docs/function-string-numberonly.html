@@ -1,0 +1,36 @@
+<ul id="markdown-toc">
+  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+</ul>
+
+<h1 id="webuistringnumberonly-text-">webui.string.numberonly( text )</h1>
+<blockquote>
+  <p>移除其他字符，只保留数值</p>
+</blockquote>
+
+<h2 id="参数">参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>类型</th>
+      <th>必填</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td>string</td>
+      <td>是</td>
+      <td>需要格式化的字符串</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webui</span><span class="p">.</span><span class="nx">string</span><span class="p">.</span><span class="nx">numberonly</span><span class="p">(</span><span class="dl">'</span><span class="s1">1WEBUI 2 前端框架3</span><span class="dl">'</span><span class="p">));</span>
+<span class="c1">// 123</span>
+</code></pre></div></div>
