@@ -1,0 +1,15 @@
+.site__message {
+    &-404 {
+        padding-top: 2rem;
+        padding-left: 2.5rem;
+
+        & .icon {
+            font-size: 5rem;
+        }
+    }
+
+    &-success{
+        display: flex;
+        flex-direction: column;
+    }
+}

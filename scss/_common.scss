@@ -1,0 +1,81 @@
+.icon {
+    display: inline-block;
+    font-family: iconfont;
+    width: inherit;
+    height: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    text-align: center;
+    color: inherit;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &-w {
+        width: auto;
+    }
+
+    &-h {
+        height: auto;
+    }
+}
+
+.modal-footer {
+    &:empty {
+        display: none;
+    }
+}
+
+.modal-full {
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    top: 1.5rem;
+    max-width: 100%;
+    margin: 0;
+
+    & .modal-content {
+        height: 100%;
+    }
+}
+
+.modal-footer:empty {
+    display: none;
+}
+
+.webui-menuopen {
+    overflow: hidden;
+}
+
+.border-secondary-dark {
+    border-color: darken($secondary, 7) !important;
+}
+
+.attachment-fixed {
+    position: relative;
+    padding: 5rem 0;
+    color: $white;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

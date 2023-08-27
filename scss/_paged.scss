@@ -1,0 +1,36 @@
+/** 分页样式 */
+.site-paged {
+    & .page-numbers {
+        float: left;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+        box-sizing: border-box;
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        border: 1px solid $gray-200;
+        background-color: $white;
+        line-height: 3rem;
+        text-align: center;
+        color: $primary;
+        text-decoration: none;
+        border-radius: 0.25rem;
+    }
+
+    & a.page-numbers:hover {
+        color: $white;
+        background-color: $gray-600;
+    }
+
+    & .dots {
+        background-color: $gray-100;
+    }
+    & .current {
+        font-weight: 500;
+        color: $white;
+        background-color: $primary;
+    }
+    & .icon {
+        font-size: 1.75rem;
+    }
+}
