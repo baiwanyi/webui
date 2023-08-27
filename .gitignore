@@ -11,3 +11,4 @@ Gemfile
 Gemfile.lock
 *.LICENSE.txt
 _config.yml
+CNAME

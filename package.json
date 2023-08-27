@@ -30,7 +30,7 @@
     "scripts": {
         "adminjs": "webpack --config sources/weadminui.webpack.js",
         "build": "webpack --config sources/webui.webpack.js",
-        "adminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:assets/css/weadminui.min.css",
+        "adminui": "sass --watch --style compressed sources/scss/weadminui/weadminui.scss:assets/css/weadminui.min.css",
         "jekyll": "bundle exec jekyll serve"
     }
 }
