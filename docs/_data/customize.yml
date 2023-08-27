@@ -1,0 +1,14 @@
+#
+services:
+    - title: 风格统一
+      desc: 我们可以帮您集成您需要的插件到 WEBUI 前端框架，实现插件和主题的无缝结合。
+      icon: assets/images/icon-coding.png
+    - title: 框架升级
+      desc: 如果您所使用的插件和 WordPress 或内核出现了兼容性问题，我们可以帮您升级插件，解决问题。
+      icon: assets/images/icon-coding.png
+    - title: 功能开发
+      desc: 我们可以帮您集成您需要的插件到 WEBUI 前端框架，实现插件和主题的无缝结合。
+      icon: assets/images/icon-coding.png
+    - title: 模块整合
+      desc: 我们可以帮您集成您需要的插件到 WEBUI 前端框架，实现插件和主题的无缝结合。
+      icon: assets/images/icon-coding.png

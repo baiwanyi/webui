@@ -1,0 +1,58 @@
+.site-markdown {
+    position: relative;
+
+    & h1 {
+        margin-top: 2rem;
+        padding-bottom: 0.5rem;
+        font-size: 2rem;
+        border-bottom: 1px solid $gray-200;
+    }
+
+    & blockquote {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        border-left: 0.25rem solid $gray-400;
+        color: $gray-600;
+    }
+
+    & table {
+        width: 100%;
+        margin-bottom: 2rem;
+        font-size: $font-size-sm;
+
+        & thead {
+            & tr {
+                border-bottom: 1px solid $gray-700;
+                color: $gray-600;
+            }
+
+            & th {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        & tbody {
+            & tr {
+                border-bottom: 1px solid $gray-400;
+
+                &:hover {
+                    background-color: var(--bs-gray-100);
+                }
+            }
+
+            & td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    }
+
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
+        margin-top: 2rem;
+        font-weight: 550;
+    }
+}
