@@ -4,6 +4,7 @@
     "keywords": [],
     "author": "Baiwanyi",
     "license": "ISC",
+    "description": "",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/baiwanyi/webui.git"
@@ -28,10 +29,9 @@
     },
     "main": "webpack.config.js",
     "scripts": {
-        "admin": "webpack --config webpack.admin.js",
-        "build": "webpack --config webpack.index.js",
-        "sass": "sass --watch --style compressed scss/webui/webui.scss:dist/webui.min.css",
-        "weadminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:dist/weadminui.min.css"
-    },
-    "description": ""
+        "admin": "webpack --config weadminui.webpack.js",
+        "build": "webpack --config webui.webpack.js",
+        "sass": "sass --watch --style compressed scss/webui/webui.scss:css/webui.min.css",
+        "weadminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:css/weadminui.min.css"
+    }
 }
