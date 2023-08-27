@@ -1,0 +1,32 @@
+#TB_title {
+    height: 50px !important;
+}
+#TB_window {
+    top: 30px !important;
+    left: 30px !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    margin: 0 !important;
+    width: auto !important;
+    overflow: hidden;
+}
+
+#TB_iframeContent {
+    position: relative;
+    width: 100% !important;
+    height: calc(100% - 50px) !important;
+}
+
+#TB_ajaxWindowTitle {
+    font-size: 22px !important;
+    line-height: 2.27272727 !important;
+}
+#TB_closeWindowButton,
+.tb-close-icon {
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 50px !important;
+}
+.tb-close-icon::before {
+    line-height: 50px !important;
+}

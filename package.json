@@ -30,7 +30,8 @@
     "scripts": {
         "admin": "webpack --config webpack.admin.js",
         "build": "webpack --config webpack.index.js",
-        "sass": "sass --watch --style compressed sass/webui.scss:dist/webui.min.css"
+        "sass": "sass --watch --style compressed scss/webui/webui.scss:dist/webui.min.css",
+        "weadminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:dist/weadminui.min.css"
     },
     "description": ""
 }

@@ -1,0 +1,21 @@
+
+.webui__admin-status {
+    padding: 0 10px;
+    margin-bottom: 7px;
+}
+.webui__admin-status,
+.webui__admin-status .dashicons-before::before {
+    line-height: 30px;
+}
+
+.webui__admin-status .dashicons-before::before,
+.webui__admin-status .dashicons-before {
+    color: #8c8f94;
+    margin-right: 0.5rem;
+}
+.webui__admin-status .dashicons-before {
+    color: #555;
+}
+.webui__admin-status .section-display {
+    font-weight: 550;
+}

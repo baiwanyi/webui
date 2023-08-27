@@ -1,0 +1,22 @@
+.hide-sidebar .attachments-browser .media-toolbar,
+.hide-sidebar .attachments-browser .attachments {
+    right: 0;
+    margin-right: 0;
+}
+
+.hide-toolbar .attachments-browser .attachments {
+    top: 0.75rem;
+}
+
+.btn-close {
+    cursor: pointer;
+}
+
+.offcanvas {
+    &-top {
+        & .offcanvas-header:last-of-type {
+            gap: 0.5rem;
+            justify-content: end;
+        }
+    }
+}
