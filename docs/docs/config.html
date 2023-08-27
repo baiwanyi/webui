@@ -11,7 +11,7 @@
         <meta name="keywords" content="" />
         <meta name="description"
               content="基于 Bootstrap 的 WordPress 应用扩展框架" />
-        <title>url.parms | WebUI JS 框架 - 基于 Bootstrap 的 WordPress 应用扩展框架</title>
+        <title>配置 | WebUI JS 框架 - 基于 Bootstrap 的 WordPress 应用扩展框架</title>
         <link rel="shortcut icon" href="favicon.ico" />
         <link rel="apple-touch-icon" href="/assets/images/touch.png" />
         <link rel="stylesheet" href="//at.alicdn.com/t/font_2114238_4ca663qlue8.css">
@@ -148,108 +148,24 @@
 
 
 
-<a class="nav-link" href="/docs/config.html">配置</a>
-
-
-
-
-
-
-
-
-
-<a class="nav-link active" aria-current="page" href="/docs/function.html">函数</a>
+<a class="nav-link active" aria-current="page" href="/docs/config.html">配置</a>
 
 
 
 
 <nav class="submenu nav flex-column">
     
-    
-    <a class="nav-link" href="/docs/function-after.html">after</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-append.html">append</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-base64.html">base64</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-before.html">before</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-html.html">html</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-lazy.html">lazy</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-load.html">load</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-page.html">page</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-prepend.html">prepend</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-qrcode.html">qrcode</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-qrcode64.html">qrcode64</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-clipboard.html">string.clipboard</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-count.html">string.count</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-countobject.html">string.countobject</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-numberonly.html">string.numberonly</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-random.html">string.random</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-string-removehtml.html">string.removehtml</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-template.html">template</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-url-parm.html">url.parm</a>
-    
-    
-    
-    <a class="nav-link hover" aria-current="page" href="/docs/function-url-parms.html">url.parms</a>
-    
-    
-    
-    <a class="nav-link" href="/docs/function-url-replace.html">url.replace</a>
-    
-    
 </nav>
+
+
+
+
+
+
+
+<a class="nav-link" href="/docs/function.html">函数</a>
+
+
 
 
 
@@ -390,48 +306,107 @@
                         </div>
                     </div>
                     <div class="site-markdown col-12 col-lg-8 order-3"><ul id="markdown-toc">
-  <li><a href="#参数" id="markdown-toc-参数">参数</a></li>
+  <li><a href="#参数" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#object-webuisettings" id="markdown-toc-object-webuisettings">object webuiSettings</a></li>
+    </ul>
+  </li>
   <li><a href="#示例代码" id="markdown-toc-示例代码">示例代码</a></li>
+  <li><a href="#应用" id="markdown-toc-应用">应用</a>    <ul>
+      <li><a href="#wordpress" id="markdown-toc-wordpress">WordPress</a></li>
+    </ul>
+  </li>
+  <li><a href="#相关资源" id="markdown-toc-相关资源">相关资源</a></li>
 </ul>
 
-<h1 id="webuiurlparms-url-">webui.url.parms( url )</h1>
+<h1 id="配置">配置</h1>
+<p>WebUI 使用 JavaScript 进行脚本操作的本地配置，本地化数据将以 JSON 的形式传递给 JavaScript 赋值调用。</p>
+
 <blockquote>
-  <p>获取 URL 参数值数组</p>
+  <p>配置参数仅应用在 AJAX 请求操作，如不需要进行 AJAX 请求可不用进行参数设置</p>
+</blockquote>
+
+<blockquote>
+  <p>重要提示： 必须在 WebUI 的 JS 文件前调用，否则它不会将本地化数据附加给它后面的脚本文件。</p>
 </blockquote>
 
 <h2 id="参数">参数</h2>
+<h3 id="object-webuisettings">object webuiSettings</h3>
+<p>配置内容的数据</p>
 
 <table>
   <thead>
     <tr>
       <th>属性</th>
       <th>类型</th>
+      <th>默认值</th>
       <th>必填</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>url</td>
+      <td>ajaxurl</td>
       <td>string</td>
-      <td>是</td>
-      <td>需要获取参数的 URL</td>
+      <td> </td>
+      <td>否</td>
+      <td>AJAX 的请求地址</td>
+    </tr>
+    <tr>
+      <td>debug</td>
+      <td>boolean</td>
+      <td> </td>
+      <td>否</td>
+      <td>开发模式</td>
+    </tr>
+    <tr>
+      <td>pagenow</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>WordPress 当前页面别名</td>
+    </tr>
+    <tr>
+      <td>nonce</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>WordPress 一次性随机数值，用于 AJAX 请求认证</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>string</td>
+      <td> </td>
+      <td>否</td>
+      <td>WordPress 请求认证头部随机数，用于 X-WP-Nonce 认证</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="示例代码">示例代码</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">webuiSettings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">ajaxurl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://webui.cc/api/v1</span><span class="dl">'</span>
+<span class="p">}</span>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://webui.cc/url.html?function=parms&amp;action=get</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webui</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">parms</span><span class="p">());</span>
-
-<span class="c1">// 返回结果：</span>
-<span class="c1">// {</span>
-<span class="c1">//    function: 'parms',</span>
-<span class="c1">//    action: 'get'</span>
-<span class="c1">// }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">webuiSettings</span><span class="p">.</span><span class="nx">ajaxurl</span><span class="p">)</span>
+<span class="c1">// https://webui.cc/api/v1</span>
 </code></pre></div></div>
+<h2 id="应用">应用</h2>
+<h3 id="wordpress">WordPress</h3>
+<p>在 WordPress 中可以使用 <code class="language-plaintext highlighter-rouge">wp_localize_script</code> 函数进行配置设置。</p>
+
+<p>WordPress 后台参数配置，参考：<a href="/docs/webui.admin.html">webui.admin</a></p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="nf">wp_enqueue_script</span><span class="p">(</span><span class="s1">'webui-js'</span><span class="p">);</span>
+    <span class="nf">wp_localize_script</span><span class="p">(</span><span class="s1">'webui-js'</span><span class="p">,</span> <span class="s1">'webuiSettings'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ajaxurl'</span> <span class="o">=&gt;</span> <span class="s1">'https://webui.cc/api/v1'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre></div></div>
+<h2 id="相关资源">相关资源</h2>
+<ul>
+  <li><a href="https://wehtml.cn">WordPress Nonces</a></li>
+  <li><a href="https://wehtml.cn">X-WP-Nonce</a></li>
+  <li><a href="https://wehtml.cn">wp_localize_script</a></li>
+</ul>
 </div>
                     <footer class="col-12 order-4">
                         <div class="lead text-black-50 mt-4 mb-4 mb-lg-0">&COPY WEBUI.CC</div>

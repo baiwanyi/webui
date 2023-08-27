@@ -81,3 +81,4 @@ exclude:
   - package.json
   - dist/
   - sources/
+  - README.md
