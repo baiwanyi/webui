@@ -27,11 +27,10 @@
         "qrcode": "^1.5.0",
         "sass": "^1.30.0"
     },
-    "main": "webpack.config.js",
     "scripts": {
-        "admin": "webpack --config weadminui.webpack.js",
-        "build": "webpack --config webui.webpack.js",
-        "sass": "sass --watch --style compressed scss/webui/webui.scss:css/webui.min.css",
-        "weadminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:css/weadminui.min.css"
+        "adminjs": "webpack --config sources/weadminui.webpack.js",
+        "build": "webpack --config sources/webui.webpack.js",
+        "adminui": "sass --watch --style compressed scss/weadminui/weadminui.scss:assets/css/weadminui.min.css",
+        "jekyll": "bundle exec jekyll serve"
     }
 }

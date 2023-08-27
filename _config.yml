@@ -57,7 +57,7 @@ kramdown:
 
 #
 sass:
-  sass_dir: assets/sass
+  sass_dir: assets/css
   style: compressed
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -68,17 +68,16 @@ sass:
 # their entries' file path in the `include:` list.
 #
 exclude:
-  - assets/src/
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
   - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
   - package-lock.json
   - package.json
-  - webpack.config.js
+  - webui.webpack.js
+  - weadminui.webpack.js
+  - dist/
+  - sources/

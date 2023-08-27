@@ -1,4 +1,6 @@
 _site/
+dist/
+docs/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
