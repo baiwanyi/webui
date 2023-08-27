@@ -79,6 +79,5 @@ exclude:
   - vendor/
   - package-lock.json
   - package.json
-  - dist/
   - sources/
   - README.md
