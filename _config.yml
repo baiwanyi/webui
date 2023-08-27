@@ -77,7 +77,6 @@ exclude:
   - vendor/
   - package-lock.json
   - package.json
-  - webui.webpack.js
-  - weadminui.webpack.js
   - dist/
   - sources/
+  - CNAME
