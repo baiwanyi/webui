@@ -29,8 +29,10 @@
 }
 
 div[id*='excerpteditor'] {
-    margin: 0;
-    padding: 0;
+    & .inside {
+        margin: 0;
+        padding: 0;
+    }
 
     & .wp-editor-container {
         border: none;
