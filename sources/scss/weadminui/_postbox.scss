@@ -28,7 +28,7 @@
     resize: none;
 }
 
-div[id$='postexcerpt'] {
+div[id*='excerpteditor'] {
     margin: 0;
     padding: 0;
 
