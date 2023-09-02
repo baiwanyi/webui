@@ -12,7 +12,7 @@ const extractJquery = new webpack.ProvidePlugin({
 module.exports = {
     // 入口，是一个对象
     entry: {
-        webui: './js/index.js'
+        webui: './sources/js/index.js'
     },
 
     // 输出

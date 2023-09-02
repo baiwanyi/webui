@@ -11,7 +11,7 @@ const extractJquery = new webpack.ProvidePlugin({
 module.exports = {
     // 入口，是一个对象
     entry: {
-        weadminui: './js/admin.js'
+        weadminui: './sources/js/admin.js'
     },
 
     // 输出
