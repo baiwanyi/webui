@@ -101,12 +101,13 @@ webui.click('button.notice-dismiss', () => {
  */
 $(document).on('click', 'button[name="submit"]', function (event) {
 
+    //
     if ($('#webui-loading').length) {
         event.preventDefault()
         return
     }
 
+    $('body, html').scrollTop(0)
     $('button').addClass('disabled')
     $('.wp-header-end').before('<div id="webui-loading" class="webui-loading small ms-2" role="status"></div>')
-    $('body, html').scrollTop(0)
 })
