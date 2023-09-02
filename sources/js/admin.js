@@ -53,11 +53,14 @@ webui.click('[data-action="wpajax"]', (current) => {
         },
         success: (result) => {
 
-            $('#message').addClass(result.data.css).removeClass('hidden')
-            $('#message').find('p').html(result.message)
-
             /** 返回页面顶部 */
             $('html, body').scrollTop(0)
+
+            if ('toast' != result.code) {
+                $('#message').addClass(result.data.css).removeClass('hidden')
+                $('#message').find('p').html(result.message)
+                return false
+            }
         },
         error: (result) => {
 
