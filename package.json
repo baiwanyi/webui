@@ -28,9 +28,6 @@
         "sass": "^1.30.0"
     },
     "scripts": {
-        "adminjs": "webpack --config sources/weadminui.webpack.js",
-        "build": "webpack --config sources/webui.webpack.js",
-        "admin": "sass --watch --style compressed sources/scss/weadminui/weadminui.scss:assets/css/weadminui.min.css",
         "jekyll": "bundle exec jekyll serve"
     }
 }
