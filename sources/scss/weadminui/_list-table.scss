@@ -54,6 +54,10 @@ th[class*='column-medium'],
     width: 8rem;
 }
 
+[class*='column-thumb'] {
+    line-height: 0;
+}
+
 .thumb-small {
     width: 4rem;
     height: 4rem;
@@ -106,8 +110,4 @@ table.nowrap {
 
 .tablenav .no-pages .pagination-links {
     display: none;
-}
-
-#wpbody .table-responsive {
-    overflow: inherit !important;
 }
