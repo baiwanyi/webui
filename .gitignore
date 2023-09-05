@@ -6,7 +6,8 @@
 .jekyll-metadata
 vendor
 node_modules/
-package-lock.json
+/package-lock.json
+/package-lock.json
 Gemfile
 Gemfile.lock
 *.LICENSE.txt
