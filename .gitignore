@@ -10,5 +10,5 @@ package-lock.json
 Gemfile
 Gemfile.lock
 *.LICENSE.txt
-*.yml
-CNAME
+/CNAME
+/_config.yml
