@@ -18,7 +18,7 @@ module.exports = {
     // 输出
     output: {
         // 带五位hash值的js
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '../dist'),
         filename: '[name].min.js',
     },
 
