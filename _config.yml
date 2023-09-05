@@ -80,4 +80,5 @@ exclude:
   - package-lock.json
   - package.json
   - sources/
+  - dist/
   - README.md
