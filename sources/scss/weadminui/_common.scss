@@ -71,12 +71,3 @@ h1.wp-heading-inline {
     margin-bottom: 0.75rem;
     line-height: 1;
 }
-
-* {
-    box-sizing: border-box;
-
-    &::after,
-    &::before {
-        box-sizing: border-box;
-    }
-}
