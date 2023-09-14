@@ -5,35 +5,35 @@
 table {
     caption-side: bottom;
     border-collapse: collapse;
-  }
+}
 
-  caption {
+caption {
     padding-top: $table-cell-padding-y;
     padding-bottom: $table-cell-padding-y;
     color: $table-caption-color;
     text-align: left;
-  }
+}
 
-  // 1. Removes font-weight bold by inheriting
-  // 2. Matches default `<td>` alignment by inheriting `text-align`.
-  // 3. Fix alignment for Safari
+// 1. Removes font-weight bold by inheriting
+// 2. Matches default `<td>` alignment by inheriting `text-align`.
+// 3. Fix alignment for Safari
 
-  th {
+th {
     font-weight: 600; // 1
     text-align: inherit; // 2
     text-align: -webkit-match-parent; // 3
-  }
+}
 
-  thead,
-  tbody,
-  tfoot,
-  tr,
-  td,
-  th {
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
     border-color: inherit;
     border-style: solid;
     border-width: 0;
-  }
+}
 
 th[class*='column-taxonomy'],
 th[class*='column-small'] {
@@ -110,4 +110,10 @@ table.nowrap {
 
 .tablenav .no-pages .pagination-links {
     display: none;
+}
+
+form {
+    & .table-responsive {
+        overflow: unset !important;
+    }
 }

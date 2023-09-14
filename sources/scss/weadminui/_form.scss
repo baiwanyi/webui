@@ -1,8 +1,13 @@
-.webui__admin-form {
+#webui__admin-form {
     &__title {
         font-size: 1.1rem;
         margin: 1rem 0;
         font-weight: 550;
+    }
+
+    & .submit {
+        display: flex;
+        gap: 0.5rem;
     }
 }
 
@@ -70,6 +75,7 @@ input[list]::-webkit-calendar-picker-indicator {
         display: inline-block;
     }
 }
+
 /*!*/
 // .webui__admin-field__checkbox,
 // .webui__admin-field__radio {

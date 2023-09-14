@@ -21,10 +21,8 @@ a[rel='upload'] .dashicons {
     line-height: 30px;
 }
 
-#post-body-content {
-    margin-bottom: 0;
-
-    & #postdivrich {
-        margin-bottom: 20px;
+.wwpo-not-post-title {
+    & #post-body-content {
+        margin-bottom: 0 !important;
     }
 }
