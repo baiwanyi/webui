@@ -77,6 +77,11 @@ input[list]::-webkit-calendar-picker-indicator {
     }
 }
 
+.button {
+    &.dashicons-before::before {
+        line-height: 28px !important;
+    }
+}
 /*!*/
 // .webui__admin-field__checkbox,
 // .webui__admin-field__radio {

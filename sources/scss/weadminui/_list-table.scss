@@ -35,7 +35,10 @@ th {
     border-width: 0;
 }
 
-th[class*='column-taxonomy'],
+th[class*='column-taxonomy'] {
+    width: 10rem;
+}
+
 th[class*='column-small'] {
     width: 5rem;
 }

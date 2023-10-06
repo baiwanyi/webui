@@ -8,6 +8,16 @@ a[class] {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
+
+    &-view {
+        text-align: center;
+        height: 100%;
+
+        & .thumb {
+            width: auto;
+            height: 100%;
+        }
+    }
 }
 
 .menu-open {
@@ -79,4 +89,8 @@ h1.wp-heading-inline {
     &::before {
         box-sizing: border-box;
     }
+}
+
+[data-action] {
+    cursor: pointer;
 }
