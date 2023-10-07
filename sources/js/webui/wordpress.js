@@ -175,7 +175,7 @@ export default class wordpress {
                 }
             },
             success: (result) => {
-                let code = ['sidebar', 'modal', 'toast', 'alert', 'url'];
+                let code = ['sidebar', 'modal', 'toast', 'alert', 'url', 'value'];
 
                 if (-1 != code.indexOf(result.code)) {
                     return true

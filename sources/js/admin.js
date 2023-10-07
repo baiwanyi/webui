@@ -53,6 +53,15 @@ webui.click('[data-action="wpajax"]', (current) => {
         },
         success: (result) => {
 
+            let code = ['sidebar', 'modal', 'toast', 'alert', 'url', 'value'];
+
+            if (-1 != code.indexOf(result.code)) {
+                return true
+            }
+            // else {
+            //     sidebar.close('[id^="webui-sidebar"]')
+            // }
+
             /** 返回页面顶部 */
             $('html, body').scrollTop(0)
 
